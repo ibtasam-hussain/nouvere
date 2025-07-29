@@ -1,218 +1,171 @@
-import { useState } from "react";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-  FaWhatsapp,
-} from "react-icons/fa";
-import { Link } from "react-scroll"; // Import Link from react-scroll
+import React from 'react';
+import { Twitter, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 
-const Footer = () => {
-  const [email, setEmail] = useState("");
+const HubFolioFooter = () => {
+  const socialLinks = [
+    { icon: Twitter, href: '#', label: 'Twitter' },
+    { icon: Facebook, href: '#', label: 'Facebook' },
+    { icon: Instagram, href: '#', label: 'Instagram' },
+    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: Youtube, href: '#', label: 'YouTube' }
+  ];
 
-  const handleSubscribe = async () => {
-    console.log("Subscribe function triggered!");
-
-    if (!email.trim()) {
-      console.log("Email is empty");
-      toast.error("Please enter an email address.");
-      return;
-    }
-
-    // Email validation using regex
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(email)) {
-      console.log("Invalid email format:", email);
-      toast.error("Please enter a valid email address.");
-      return;
-    }
-
-    try {
-      console.log("Attempting to add email:", email);
-
-      await addDoc(collection(db, "newsletter"), { email });
-
-      console.log("Email added to Firestore!");
-      toast.success("You have successfully subscribed!");
-      setEmail("");
-    } catch (error) {
-      console.error("Firestore Error:", error);
-      toast.error("Subscription failed. Try again later.");
-    }
-  };
+  const footerLinks = [
+    { name: 'Home', href: '#' },
+    { name: 'Works', href: '#' },
+    { name: 'Studio', href: '#' },
+    { name: 'News', href: '#' }
+  ];
 
   return (
-    <footer className="bg-gradient-to-b from-black to-[#100017] text-white py-10 px-6 lg:px-20">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center lg:items-start space-y-6 lg:space-y-0">
-        {/* Left Section - Navigation Links */}
-        <div className="text-center lg:text-left space-y-6">
-          <ul className="flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-gray-400">
-            <li>
-              <Link
-                to="joinus"
-                smooth={true}
-                duration={800}
-                className="hover:text-white transition cursor-pointer"
-              >
-                Join us
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="aboutus"
-                smooth={true}
-                duration={800}
-                className="hover:text-white transition cursor-pointer"
-              >
-                About us
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="speakers"
-                smooth={true}
-                duration={800}
-                className="hover:text-white transition cursor-pointer"
-              >
-                Our Speakers
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="sponsors"
-                smooth={true}
-                duration={800}
-                className="hover:text-white transition cursor-pointer"
-              >
-                Our Sponsors
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="gallery"
-                smooth={true}
-                duration={800}
-                className="hover:text-white transition cursor-pointer"
-              >
-                Gallery
-              </Link>
-            </li>
-          </ul>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-400">
-            <div>
-              <h3 className="font-semibold text-white">OPENING HOURS</h3>
-              <p>9am to 5pm</p>
+      <footer className="w-full relative overflow-hidden" style={{
+        background: 'linear-gradient(135deg, #0a0015 0%, #1a0b2e 25%, #2d1b4e 50%, #4c1d5f 75%, #7209b7 100%)'
+      }}>
+        {/* Complex gradient overlays to match the exact purple tones */}
+        <div className="absolute inset-0" style={{
+          background: `
+            radial-gradient(circle at 20% 80%, rgba(138, 43, 226, 0.4) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(75, 0, 130, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(147, 51, 234, 0.2) 0%, transparent 50%)
+          `
+        }}></div>
+        
+        {/* Additional atmospheric effects */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-60" style={{
+          background: `
+            linear-gradient(45deg, transparent 0%, rgba(147, 51, 234, 0.1) 25%, transparent 50%),
+            linear-gradient(-45deg, transparent 0%, rgba(126, 34, 206, 0.1) 25%, transparent 50%)
+          `
+        }}></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-16 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 items-start">
+            
+            {/* Left Section - Logo and Tagline */}
+            <div className="lg:col-span-5 space-y-10">
+              <div className="flex items-center gap-3">
+                {/* Pixel-perfect Logo Icon */}
+                <div className="w-12 h-12 relative">
+                  <svg
+                    viewBox="0 0 48 48"
+                    className="w-full h-full"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    {/* Main bird body - white */}
+                    <path
+                      d="M6 38L24 6L42 24L36 30L24 18L12 34L6 38Z"
+                      fill="white"
+                      fillOpacity="0.95"
+                    />
+                    {/* Wing detail - purple gradient */}
+                    <path
+                      d="M24 6L42 24L36 18L24 12L18 18L24 6Z"
+                      fill="url(#wingGradient)"
+                    />
+                    {/* Tail detail - purple to cyan gradient */}
+                    <path
+                      d="M12 34L24 18L30 24L18 38L12 34Z"
+                      fill="url(#tailGradient)"
+                    />
+                    <defs>
+                      <linearGradient id="wingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#a855f7" />
+                        <stop offset="100%" stopColor="#ec4899" />
+                      </linearGradient>
+                      <linearGradient id="tailGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#8b5cf6" />
+                        <stop offset="100%" stopColor="#06b6d4" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                
+                <h2 className="text-white text-2xl font-medium tracking-tight">
+                  HubFolio
+                </h2>
+              </div>
+              
+              <div className="space-y-8">
+                <p className="text-gray-200 text-base leading-relaxed font-light max-w-sm">
+                  We hope to empower user and simplify<br />
+                  their everyday lives
+                </p>
+                
+                <p className="text-gray-400 text-sm font-light">
+                  © 2024 HubFolio Agency. All Right Reserved.
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 className="font-semibold text-white">EMAIL</h3>
-              <p>techtalks.pk92@gmail.com</p>
+
+            {/* Middle Section - Location */}
+            <div className="lg:col-span-3 lg:col-start-7 space-y-6">
+              <div>
+                <h3 className="text-gray-300 text-xs font-medium uppercase tracking-widest mb-6 opacity-80">
+                  Location
+                </h3>
+                <address className="text-gray-200 text-sm leading-loose not-italic font-light">
+                  192 Thatcher Road St, Manhattan,<br />
+                  NY 10038, US
+                </address>
+              </div>
+            </div>
+
+            {/* Right Section - Contact & Social */}
+            <div className="lg:col-span-3 lg:col-start-10 space-y-6">
+              <div>
+                <h3 className="text-gray-300 text-xs font-medium uppercase tracking-widest mb-6 opacity-80">
+                  Follow
+                </h3>
+                <div className="text-gray-200 text-sm leading-loose font-light space-y-1">
+                  <p>hello@hubfolio.agency</p>
+                  <p>+06816890604</p>
+                </div>
+              </div>
+              
+              {/* Social Media Icons - exact spacing and styling */}
+              <div className="flex gap-2 pt-2">
+                {socialLinks.map((social, index) => {
+                  const IconComponent = social.icon;
+                  return (
+                    <a
+                      key={index}
+                      href={social.href}
+                      aria-label={social.label}
+                      className="w-9 h-9 rounded-full flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110"
+                      style={{
+                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                        background: 'rgba(255, 255, 255, 0.05)',
+                        backdropFilter: 'blur(10px)'
+                      }}
+                    >
+                      <IconComponent size={14} strokeWidth={1.5} />
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
-          <div className="flex mt-4 gap-4 justify-center lg:justify-start">
-            <a
-              href="https://www.facebook.com/TechTalks.Pakistan"
-              className="text-blue-600 hover:text-blue-700"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaFacebook size={18} />
-            </a>
-            <a
-              href="https://www.instagram.com/techtalks.pk/"
-              className="text-pink-600 hover:text-pink-700"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram size={18} />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/techtalkspk"
-              className="text-blue-700 hover:text-blue-800"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedin size={18} />
-            </a>
-            <a
-              href="https://wa.me/+923100931999"
-              className="text-green-500 hover:text-green-600"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaWhatsapp size={18} />
-            </a>
-          </div>
-
-          {/* Privacy, Overview, and Refund Policy Links */}
-          <div className="flex justify-center lg:justify-start mt-4 gap-6 text-sm text-gray-400">
-            <a
-              href="https://docs.google.com/document/u/1/d/1ODsuamvDZrnDzxvvy8LWot6JYleghBG2/edit?usp=sharing&ouid=116707558333377867313&rtpof=true&sd=true"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="https://docs.google.com/document/d/1FYIyaFTyXbvUu9JxfAfuI8_l9TDDf8pm/edit#heading=h.g5ec1uhjvm9n"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition"
-            >
-              Refund Policy
-            </a>
-            <a
-              href="https://drive.google.com/file/d/1VQr495D1emN5FkaqMg926B1D25f0-GQo/view"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition"
-            >
-              Overview
-            </a>
+          {/* Bottom Navigation - exact positioning */}
+          <div className="mt-20 pt-8 border-t border-white/10">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+              <nav className="flex flex-wrap gap-10">
+                {footerLinks.map((link, index) => (
+                  <a
+                    key={index}
+                    href={link.href}
+                    className="text-gray-300 hover:text-white text-sm font-light transition-colors duration-300 tracking-wide"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </nav>
+            </div>
           </div>
         </div>
-
-        {/* Right Section - Branding & Newsletter */}
-        <div className="text-center lg:text-right space-y-4 w-full lg:w-auto">
-          <h2 className="text-2xl font-semibold">
-            Tech<span className="text-purple-500">Talks</span>.pk
-          </h2>
-
-          <div className="lg:text-left">
-            <h3 className="text-lg font-semibold">
-              Subscribe to Our Newsletter
-            </h3>
-            <p className="text-gray-400 text-sm mb-3"></p>
-            <div className="flex flex-col sm:flex-row items-center gap-3">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="px-4 py-2 w-full sm:w-60 rounded-lg bg-white bg-opacity-20 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-purple-500 transition"
-              />
-              <button
-                onClick={handleSubscribe}
-                className="bg-purple-500 hover:bg-purple-600 text-white px-5 py-2 rounded-lg transition"
-              >
-                Subscribe
-              </button>
-            </div>
-          </div>
-
-          <p className="text-gray-400 text-sm">
-            Stay updated with the latest tech trends & event news.
-          </p>
-
-          <p className="text-gray-500 text-xs">© 2024 – Copyright</p>
-        </div>
-      </div>
-
-  
-    </footer>
+      </footer>
   );
 };
 
-export default Footer;
+export default HubFolioFooter;

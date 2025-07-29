@@ -1,224 +1,209 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(1);
-  const [isHovered, setIsHovered] = useState(false);
+const TestimonialsSection = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const testimonials = [
     {
       id: 1,
-      name: "Alex Regelman",
-      position: "Co-founder",
-      company: "Colabrio",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face",
-      text: "I would highly recommend Vie Digital. I worked with the team on an animation for our 'Click & Collect' service."
+      rating: 5.0,
+      text: "A studio with passionate, professional and full creativity. Much more than I'm expect. Great services, high quality products & affordable prices. I'm extremely satisfied!",
+      author: "Bradley Gordon",
+      position: "CEO & Founder Avion Studio",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&auto=format&q=80"
     },
     {
       id: 2,
-      name: "Sarah Johnson",
-      position: "Marketing Director",
-      company: "TechFlow",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=80&h=80&fit=crop&crop=face",
-      text: "Outstanding work! The team delivered exactly what we needed and exceeded our expectations with their creative approach."
+      rating: 5.0,
+      text: "Thank you so much for the support of HubFolio team, who have been with our business for more than 3 years. A long journey with many exciting experiences and moments. HubFolio will always be our 1st choice.",
+      author: "Dominik Szczepialski",
+      position: "Team lead, Zara Inc",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&auto=format&q=80"
     },
     {
       id: 3,
-      name: "Michael Chen",
-      position: "CEO",
-      company: "StartupLab",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
-      text: "Professional, efficient, and incredibly talented. They transformed our vision into reality with stunning animations."
-    },
-    {
-      id: 4,
-      name: "Emily Chen",
-      position: "CTO",
-      company: "StartupLab",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
-      text: "Professional, efficient, and incredibly talented. They transformed our vision into reality with stunning animations."
-    },
-    {
-      id: 5,
-      name: "Emily Chen",
-      position: "CTO",
-      company: "StartupLab",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
-      text: "Professional, efficient, and incredibly talented. They transformed our vision into reality with stunning animations."
-    },
+      rating: 4.5,
+      text: "HubFolio ability to create a high-quality user interface stands out. It's something we placed a premium on. Recommended!",
+      author: "Mac Alister",
+      position: "Senior Marketing Spotify",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=50&h=50&fit=crop&auto=format&q=80"
+    }
   ];
 
+  const totalSlides = Math.ceil(testimonials.length / 3);
+
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
   };
 
-  const getVisibleTestimonials = () => {
-    const result = [];
-    for (let i = 0; i < 3; i++) {
-      const index = (currentIndex - 1 + i + testimonials.length) % testimonials.length;
-      result.push({
-        ...testimonials[index],
-        position: i === 0 ? 'left' : i === 1 ? 'center' : 'right'
-      });
-    }
-    return result;
+  const renderStars = (rating) => {
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0;
+    const emptyStars = 5 - Math.ceil(rating);
+
+    return (
+      <div className="flex items-center gap-1">
+        {/* Full stars */}
+        {[...Array(fullStars)].map((_, i) => (
+          <Star key={i} size={14} className="fill-yellow-400 text-yellow-400" />
+        ))}
+        {/* Half star */}
+        {hasHalfStar && (
+          <div className="relative">
+            <Star size={14} className="text-gray-600" />
+            <div className="absolute inset-0 overflow-hidden w-1/2">
+              <Star size={14} className="fill-yellow-400 text-yellow-400" />
+            </div>
+          </div>
+        )}
+        {/* Empty stars */}
+        {[...Array(emptyStars)].map((_, i) => (
+          <Star key={i} size={14} className="text-gray-600" />
+        ))}
+      </div>
+    );
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
-      <div className="max-w-7xl w-full">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Client Testimonials
-          </h2>
-          <p className="text-gray-400 text-lg">
-            What our clients say about working with us
-          </p>
-        </div>
-
+    <div className="min-h-screen bg-black flex items-center justify-center relative overflow-hidden">
+      {/* Background geometric shapes */}
+      <div className="absolute inset-0">
+        {/* Bottom left large triangle */}
         <div 
-          className="relative flex items-center justify-center"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          {/* Navigation Buttons */}
-          <button
-            onClick={prevSlide}
-            className={`absolute left-4 z-10 p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all duration-300 ${
-              isHovered ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
-            }`}
-          >
-            <ChevronLeft size={24} />
-          </button>
+          className="absolute bottom-0 left-0 w-0 h-0"
+          style={{
+            borderStyle: 'solid',
+            borderWidth: '0 0 400px 600px',
+            borderColor: 'transparent transparent #7c3aed transparent'
+          }}
+        ></div>
+        
+        {/* Bottom right triangle */}
+        <div 
+          className="absolute bottom-0 right-0 w-0 h-0"
+          style={{
+            borderStyle: 'solid',
+            borderWidth: '300px 0 0 500px',
+            borderColor: 'transparent transparent transparent #8b5cf6'
+          }}
+        ></div>
+      </div>
 
-          <button
-            onClick={nextSlide}
-            className={`absolute right-4 z-10 p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all duration-300 ${
-              isHovered ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
-            }`}
-          >
-            <ChevronRight size={24} />
-          </button>
-
-          {/* Testimonials Container */}
-          <div className="flex items-center justify-center w-full max-w-6xl mx-auto px-8">
-            {getVisibleTestimonials().map((testimonial, index) => {
-              const isCenter = testimonial.position === 'center';
-              const isLeft = testimonial.position === 'left';
-              const isRight = testimonial.position === 'right';
-              
-              return (
-                <div
-                  key={`${testimonial.id}-${index}`}
-                  className={`
-                    relative transition-all duration-700 ease-in-out cursor-pointer
-                    ${isCenter ? 'w-96 h-80 mx-4 z-20' : 'w-80 h-64 z-10'}
-                    ${isLeft ? '-mr-16' : ''}
-                    ${isRight ? '-ml-16' : ''}
-                    ${isCenter ? 'transform scale-105' : 'transform scale-90'}
-                  `}
-                  onClick={() => {
-                    if (isLeft) prevSlide();
-                    if (isRight) nextSlide();
-                  }}
-                >
-                  {/* Card */}
-                  <div className={`
-                    w-full h-full rounded-2xl p-8 flex flex-col justify-between
-                    transition-all duration-700 ease-in-out
-                    ${isCenter 
-                      ? 'bg-white shadow-2xl border border-gray-100' 
-                      : 'bg-gray-800 shadow-xl border border-gray-700 opacity-70 hover:opacity-90'
-                    }
-                    ${!isCenter && isLeft ? 'clip-right' : ''}
-                    ${!isCenter && isRight ? 'clip-left' : ''}
-                  `}>
-                    
-                    {/* Quote */}
-                    <div className="flex-1">
-                      <p className={`
-                        text-lg leading-relaxed mb-6
-                        ${isCenter ? 'text-gray-800' : 'text-gray-200'}
-                      `}>
-                        "{testimonial.text}"
-                      </p>
-                    </div>
-
-                    {/* Author Info */}
-                    <div className="flex items-center">
-                      <img
-                        src={testimonial.avatar}
-                        alt={testimonial.name}
-                        className="w-16 h-16 rounded-full object-cover mr-4 border-2 border-gray-200"
-                      />
-                      <div>
-                        <h4 className={`
-                          font-semibold text-lg mb-1
-                          ${isCenter ? 'text-gray-900' : 'text-white'}
-                        `}>
-                          {testimonial.name}
-                        </h4>
-                        <p className={`
-                          text-sm
-                          ${isCenter ? 'text-gray-600' : 'text-gray-400'}
-                        `}>
-                          {testimonial.position}
-                        </p>
-                        <p className={`
-                          text-sm font-medium
-                          ${isCenter ? 'text-blue-600' : 'text-blue-400'}
-                        `}>
-                          {testimonial.company}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Active Card Indicator */}
-                    {isCenter && (
-                      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-t-2xl"></div>
-                    )}
-                  </div>
-
-                  {/* Overlay for side cards */}
-                  {!isCenter && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-gray-900/30 rounded-2xl pointer-events-none"></div>
-                  )}
-                </div>
-              );
-            })}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-20">
+        {/* Header Section */}
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-16 gap-8">
+          <div className="flex items-center gap-4">
+            {/* Navigation Arrow Left */}
+            <button 
+              onClick={prevSlide}
+              className="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors"
+            >
+              <ChevronLeft size={18} />
+            </button>
+            
+            {/* Section Title */}
+            <span className="text-gray-400 text-sm font-medium uppercase tracking-wider">
+              TESTIMONIALS
+            </span>
+          </div>
+          
+          {/* Header Text and Rating */}
+          <div className="lg:text-right space-y-4">
+            <h2 className="text-white text-2xl lg:text-3xl font-light leading-relaxed max-w-lg">
+              We've helped hundreds of partners,<br />
+              to achieve their goals and <span className="text-gray-400">stellar feedback,<br />
+              is our reward!</span>
+            </h2>
+            
+            {/* Overall Rating */}
+            <div className="flex lg:justify-end items-center gap-3">
+              <span className="text-white text-lg font-medium">4.9/5</span>
+              <div className="flex items-center gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star 
+                    key={i} 
+                    size={16} 
+                    className={i < 4 ? "fill-yellow-400 text-yellow-400" : "text-gray-600"} 
+                  />
+                ))}
+              </div>
+              <span className="text-gray-400 text-sm">based on 83 reviews</span>
+            </div>
           </div>
         </div>
 
-        {/* Dots Indicator */}
-        <div className="flex justify-center mt-12 space-x-3">
-          {testimonials.map((_, index) => (
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+          {testimonials.map((testimonial, index) => (
+            <div 
+              key={testimonial.id}
+              className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 hover:border-gray-700 transition-all duration-300"
+            >
+              {/* Rating */}
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-white text-lg font-medium">
+                  {testimonial.rating}
+                </span>
+                {renderStars(testimonial.rating)}
+              </div>
+
+              {/* Testimonial Text */}
+              <p className="text-gray-200 text-base leading-relaxed mb-8 font-light">
+                {testimonial.text}
+              </p>
+
+              {/* Author Info */}
+              <div className="flex items-center gap-3">
+                <img
+                  src={testimonial.avatar}
+                  alt={testimonial.author}
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <h4 className="text-white text-sm font-medium">
+                    {testimonial.author}
+                  </h4>
+                  <p className="text-gray-400 text-xs">
+                    {testimonial.position}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Pagination Dots */}
+        <div className="flex justify-center items-center gap-3">
+          {[...Array(5)].map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentIndex
-                  ? 'bg-blue-500 w-8'
-                  : 'bg-gray-600 hover:bg-gray-500'
+              onClick={() => setCurrentSlide(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentSlide 
+                  ? 'bg-white w-8' 
+                  : index === 1 || index === 3
+                    ? 'bg-gray-600' 
+                    : 'bg-gray-700'
               }`}
             />
           ))}
+          
+          {/* Navigation Arrow Right */}
+          <button 
+            onClick={nextSlide}
+            className="ml-4 w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white transition-colors"
+          >
+            <ChevronRight size={18} />
+          </button>
         </div>
       </div>
-
-      <style jsx>{`
-        .clip-right {
-          clip-path: polygon(0 0, 75% 0, 85% 100%, 0 100%);
-        }
-        .clip-left {
-          clip-path: polygon(15% 0, 100% 0, 100% 100%, 25% 100%);
-        }
-      `}</style>
     </div>
   );
 };
 
-export default Testimonials;
+export default TestimonialsSection;

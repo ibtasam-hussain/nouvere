@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom' // ✅ for routing
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 
 import Navbar from './components/navbar'
@@ -11,10 +11,16 @@ import ScrollToTop from './components/ScrollToTop'
 import PortfolioSection from './components/portfolio'
 import BestFeatures from './components/BestFeatures'
 import Intro from './assets/intro.mp4'
+import Articles from './components/articles' // ✅ FIXED
+import ContactUS from './components/contactus'
+import Testimonial from './components/Testimonials'
+import Client from './components/clients'
+import Icons from './components/icons'
 
 function App() {
   const [showIntro, setShowIntro] = useState(true)
 
+  // If you want to auto-hide intro after 5s uncomment this:
   // useEffect(() => {
   //   const timer = setTimeout(() => {
   //     setShowIntro(false)
@@ -22,6 +28,7 @@ function App() {
   //   return () => clearTimeout(timer)
   // }, [])
 
+  // Optional intro video screen
   // if (showIntro) {
   //   return (
   //     <video className="intro-video" autoPlay muted onEnded={() => setShowIntro(false)}>
@@ -34,19 +41,20 @@ function App() {
   return (
     <>
       <Navbar />
-
-      {/* Main Routing Area */}
       <Routes>
         <Route
           path="/"
           element={
             <>
               <Hero />
+              <Icons/>
               <BestFeatures />
+              <Testimonial/>
               <PortfolioSection />
+              <Client/>
               <Packages />
-              {/* <Team /> */}
-              {/* <Testimonials /> */}
+              <Articles />
+              <ContactUS />
             </>
           }
         />
@@ -59,7 +67,7 @@ function App() {
           }
         />
       </Routes>
-<ScrollToTop />
+      <ScrollToTop />
       <Footer />
     </>
   )

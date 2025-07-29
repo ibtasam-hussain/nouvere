@@ -1,107 +1,107 @@
 "use client";
 
+import { isPrimaryPointer } from "framer-motion";
 import { Check, X } from "lucide-react";
 import React, { useState } from "react";
 
 export default function PackagesSection() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const packages = [
-    {
-      title: "VISIBILITY BOOST PACKAGE",
-      description:
-        "Ideal for sponsors seeking brand exposure and audience engagement.",
-      features: [
-        "Prime Viewing Time Arrangement – your brand featured in high-traffic slots",
-        "Public Relations Outreach – gain positive media coverage through our PR network",
-        "Brand Shout-Outs – across our channels and partner networks",
-      ],
-      buttonText: "Get a Quote",
-    },
-    {
-      title: "PREMIUM PARTNERSHIP PACKAGE",
-      description:
-        "Designed for brands seeking maximum reach and growth, with measurable ROI over a 3-month campaign.",
-      features: [
-        "All benefits of Package 1 and Package 2",
-        "Complete digital marketing strategy & execution for 3 months",
-        "Production and distribution across all digital platforms (Facebook, Instagram, YouTube, TikTok, and more)",
-        "Ongoing performance tracking and monthly reporting",
-        "Website Development – design and develop a custom website aligned with your brand goals",
-      ],
-      buttonText: "Get a Quote",
-    },
-    {
-      title: "BRAND BUILDER PACKAGE",
-      description:
-        "Ideal for who want a consistent, high-quality content rollout to drive deeper engagement.",
-      features: [
-        "One professionally produced advertisement",
-        "Two engaging social media reels",
-        "Ten curated social media posts",
-        "Behind-the-Scenes (BTS) video coverage",
-      ],
-      buttonText: "Get a Quote",
-    },
-  ];
+const packages = [
+  {
+    title: "Launch",
+    description:
+      "Our launch package is perfect for brands looking to make a significant impact with a smaller investment. Ideal for those just getting started or testing new strategies.",
+    price: "$6,300",
+    features: ["12 video ads", "12 video ads", "12 video ads", "12 video ads", "12 video ads", "12 video ads"],
+    isPopular: false,
+  },
+  {
+    title: "Accelerate",
+    description:
+      "Our launch package is perfect for brands looking to make a significant impact with a smaller investment. Ideal for those just getting started or testing new strategies.",
+    price: "$6,300",
+    features: ["12 video ads", "12 video ads", "12 video ads", "12 video ads", "12 video ads", "12 video ads"],
+    isPopular: true,
+  },
+  {
+    title: "Dominate",
+    description:
+      "Our launch package is perfect for brands looking to make a significant impact with a smaller investment. Ideal for those just getting started or testing new strategies.",
+    price: "$6,300",
+    features: ["12 video ads", "12 video ads", "12 video ads", "12 video ads", "12 video ads", "12 video ads"],
+    isPopular: false,
+  },
+];
+
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black py-16 px-4 sm:px-6 md:px-8 relative">
+    <section className="min-h-screen py-16 px-4 sm:px-6 md:px-8 relative">
       <div className="container mx-auto max-w-7xl">
         {/* Title */}
-        <div className="text-center mb-16 px-4">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-purple-400 via-pink-500 to-purple-600 bg-clip-text text-transparent leading-tight">
-            OUR PACKAGES
-          </h2>
-        </div>
+<div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16">
+  <div>
+    <button className="text-xs px-4 py-1 border border-[#ffffff30] text-white rounded-full mb-4 hover:bg-white hover:text-black transition-all">
+      ← OUR PACKAGES
+    </button>
+    <h2 className="text-white text-2xl sm:text-3xl md:text-4xl font-semibold max-w-xl">
+      Our user-centered design encourages{" "}
+      <span className="text-white/60 font-normal">productivity</span>{" "}
+      & <span className="text-green-400 font-normal">boosts revenue</span>.
+    </h2>
+  </div>
+</div>
+
 
         {/* Packages Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {packages.map((pkg, index) => (
-            <div
-              key={index}
-              className="relative group transition-all duration-500 ease-in-out bg-gray-900/50 hover:bg-gradient-to-br hover:from-purple-600 hover:via-purple-700 hover:to-purple-800 hover:scale-[1.02] backdrop-blur-sm border border-purple-500/30 rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:border-purple-400/60 hover:shadow-2xl hover:shadow-purple-500/25"
-            >
-              {/* Card Content */}
-              <div className="flex-1 space-y-5">
-                <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">
-                  {pkg.title}
-                </h3>
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  {packages.map((pkg, index) => (
+    <div
+      key={index}
+      className={`relative flex flex-col justify-between h-full p-6 sm:p-8 rounded-2xl border ${
+        pkg.isPopular
+          ? "bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 border-purple-500"
+          : "bg-black/30 border-white/10"
+      }`}
+    >
+      {/* Popular Badge */}
+      {pkg.isPopular && (
+        <span className="absolute top-4 right-4 bg-white text-black text-xs px-3 py-1 rounded-full font-semibold">
+          POPULAR
+        </span>
+      )}
 
-                <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-                  {pkg.description}
-                </p>
+      <div className="space-y-4">
+        <h3 className="text-xl text-white font-semibold">{pkg.title}</h3>
+        <p className="text-white/80 text-sm leading-relaxed">{pkg.description}</p>
 
-                {/* Features List */}
-                <div className="space-y-3">
-                  {pkg.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-purple-500 flex items-center justify-center">
-                        <Check className="w-3 h-3 text-white" />
-                      </div>
-                      <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-                        {feature}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+        <h4 className="text-4xl text-purple-300 font-bold pt-2">{pkg.price}</h4>
 
-              {/* CTA Button */}
-              <div className="mt-6">
-                <button
-                  onClick={() => setIsOpen(true)}
-                  className="w-full text-sm sm:text-base bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-                >
-                  {pkg.buttonText}
-                </button>
-              </div>
-
-              {/* Hover Glow */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-            </div>
+        <ul className="space-y-2 pt-2">
+          {pkg.features.map((feature, i) => (
+            <li key={i} className="flex items-center gap-3 text-white/90 text-sm">
+              <Check className="w-4 h-4 text-purple-400" />
+              {feature}
+            </li>
           ))}
-        </div>
+        </ul>
+      </div>
+
+      {/* CTA Button */}
+      <button
+        onClick={() => setIsOpen(true)}
+        className={`mt-6 text-sm w-full px-4 py-3 rounded-full font-medium transition-all ${
+          pkg.isPopular
+            ? "bg-white text-black hover:bg-white/80"
+            : "bg-black border border-white text-white hover:bg-white hover:text-black"
+        }`}
+      >
+        Schedule a Consultation
+      </button>
+    </div>
+  ))}
+</div>
+
       </div>
 
       {/* Modal */}

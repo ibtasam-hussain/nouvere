@@ -1,6 +1,6 @@
 import { FaCode, FaBullhorn, FaPalette, FaEnvelope, FaMobileAlt, FaUsers, FaObjectGroup } from 'react-icons/fa';
 import BirdImage from "../assets/aboutus.svg"; 
-
+import BestFeaturesBG from "../assets/bestfeaturesBG.svg";
 
 
 const services = [
@@ -44,7 +44,12 @@ const services = [
 
 export default function OurServices() {
   return (
-    <section className="min-h-screen w-full mt-10  p-6 md:p-12">
+<section
+  className="w-full min-h-screen bg-cover bg-center bg-no-repeat p-6 md:p-12"
+  style={{
+    backgroundImage: `url(${BestFeaturesBG})`,
+  }}
+>
 
       <section className="min-h-screen w-full mt-10 p-6 md:p-12">
   <div className="max-w-7xl mx-auto mt-10">
@@ -111,7 +116,7 @@ export default function OurServices() {
 
 
   {/* Right Side - Content */}
-  <div className="w-full md:w-2/5 bg-[#1d002f] flex items-center justify-center p-6 md:p-12">
+  <div className="w-full md:w-2/5  flex items-center justify-center p-6 md:p-12">
     <div className="bg-[#ffffff0a] backdrop-blur-md border border-[#ffffff1a] rounded-xl p-6 md:p-10 w-full max-w-sm text-white min-h-[520px] flex flex-col gap-6 shadow-md">
 
       

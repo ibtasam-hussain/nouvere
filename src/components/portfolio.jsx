@@ -1,5 +1,6 @@
 import React from "react";
 import PortfolioImage from "../assets/bg.avif";
+import Bg from "../assets/ourservicesBG.svg";
 
 const projects = [
   {
@@ -26,7 +27,12 @@ const projects = [
 
 export default function ProjectSection() {
   return (
-    <section className="py-12  text-white">
+    <section
+  className="w-full min-h-screen py-12 text-white bg-no-repeat bg-center bg-cover"
+  style={{
+    backgroundImage: `url(${Bg})`,
+  }}
+>
       <div className="container mx-auto px-4">
                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 gap-6">
    <button className="text-lg px-5 py-2 border border-purple-500 text-white rounded-full font-medium flex items-center gap-2">

@@ -10,7 +10,6 @@ import Team from './components/team'
 import ScrollToTop from './components/ScrollToTop'
 import PortfolioSection from './components/portfolio'
 import BestFeatures from './components/BestFeatures'
-import Intro from './assets/intro.mp4'
 import Articles from './components/articles' // ✅ FIXED
 import ContactUS from './components/contactus'
 import Testimonial from './components/Testimonials'
@@ -18,25 +17,7 @@ import Client from './components/clients'
 import Icons from './components/icons'
 
 function App() {
-  const [showIntro, setShowIntro] = useState(true)
 
-  // If you want to auto-hide intro after 5s uncomment this:
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setShowIntro(false)
-  //   }, 5000)
-  //   return () => clearTimeout(timer)
-  // }, [])
-
-  // Optional intro video screen
-  // if (showIntro) {
-  //   return (
-  //     <video className="intro-video" autoPlay muted onEnded={() => setShowIntro(false)}>
-  //       <source src={Intro} type="video/mp4" />
-  //       Your browser does not support the video tag.
-  //     </video>
-  //   )
-  // }
 
   return (
     <>
@@ -47,12 +28,11 @@ function App() {
           element={
             <>
               <Hero />
-              <Icons/>
               <BestFeatures />
-              <Testimonial/>
               <PortfolioSection />
               <Client/>
               <Packages />
+              <Testimonial/>
               <Articles />
               <ContactUS />
             </>

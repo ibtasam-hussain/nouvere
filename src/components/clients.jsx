@@ -24,9 +24,10 @@ const OurClients = () => {
         </div>
 
         {/* Button */}
-        <button className="border border-purple-500 text-sm px-5 py-2 rounded-full text-white hover:bg-purple-600 transition duration-300">
-          OUR CLIENTS
-        </button>
+       <button className="text-lg px-5 py-2 border border-purple-500 text-white rounded-full font-medium flex items-center gap-2">
+            <span className="text-purple-400 font-semibold text-2xl ">◂</span>{" "}
+            <span className="italic">OUR CLIENTS</span>
+          </button>
       </div>
 
       {/* Logos */}

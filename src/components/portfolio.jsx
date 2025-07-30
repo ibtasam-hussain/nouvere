@@ -28,9 +28,19 @@ export default function ProjectSection() {
   return (
     <section className="py-12  text-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-8 text-white">
-          Our Projects
-        </h2>
+               <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 gap-6">
+   <button className="text-lg px-5 py-2 border border-purple-500 text-white rounded-full font-medium flex items-center gap-2">
+            <span className="text-purple-400 font-semibold text-2xl ">◂</span>{" "}
+            <span className="italic">FEATURED WORK</span>
+          </button>
+
+          <div className="text-right max-w-xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium leading-snug">
+              Our user-centered design encourages <br />
+              <span className="text-white/60 font-normal">productivity &amp; boosts revenue.</span>
+            </h2>
+          </div>
+        </div>
 
         <div className="space-y-2">
         

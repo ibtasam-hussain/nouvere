@@ -30,61 +30,17 @@ const ContactFormSection = () => {
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4 relative overflow-hidden">
-      {/* Background geometric shapes */}
-      <div className="absolute inset-0">
-        {/* Top left triangle */}
-        <div 
-          className="absolute top-0 left-0 w-0 h-0"
-          style={{
-            borderStyle: 'solid',
-            borderWidth: '0 0 200px 300px',
-            borderColor: 'transparent transparent #7c3aed transparent'
-          }}
-        ></div>
-        
-        {/* Top right triangle */}
-        <div 
-          className="absolute top-0 right-0 w-0 h-0"
-          style={{
-            borderStyle: 'solid',
-            borderWidth: '120px 250px 0 0',
-            borderColor: '#8b5cf6 transparent transparent transparent'
-          }}
-        ></div>
-        
-        {/* Bottom left triangle */}
-        <div 
-          className="absolute bottom-0 left-0 w-0 h-0"
-          style={{
-            borderStyle: 'solid',
-            borderWidth: '0 0 150px 200px',
-            borderColor: 'transparent transparent #6d28d9 transparent'
-          }}
-        ></div>
-        
-        {/* Bottom right triangle */}
-        <div 
-          className="absolute bottom-0 right-0 w-0 h-0"
-          style={{
-            borderStyle: 'solid',
-            borderWidth: '180px 0 0 300px',
-            borderColor: 'transparent transparent transparent #7c3aed'
-          }}
-        ></div>
-      </div>
-
-      {/* Main content container */}
-      <div className="relative z-10 w-full max-w-5xl">
-        <div 
-          className="bg-black/40 backdrop-blur-sm rounded-3xl p-8 lg:p-12"
+      {/* Main content container - full width */}
+      <div className="relative z-10 w-full max-w-[1600px]">
+        <div
+          className="bg-black/40 backdrop-blur-sm rounded-3xl p-6 md:p-10 lg:p-14 xl:p-20"
           style={{
             background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(124, 58, 237, 0.3) 50%, rgba(109, 40, 217, 0.2) 100%)',
             border: '1px solid rgba(139, 92, 246, 0.3)',
             backdropFilter: 'blur(20px)'
           }}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-            
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
             {/* Left Section */}
             <div className="lg:col-span-5 space-y-8">
               <div>
@@ -94,7 +50,7 @@ const ContactFormSection = () => {
                   together!</span>
                 </h1>
               </div>
-              
+
               <div className="space-y-6">
                 <div>
                   <h2 className="text-white text-2xl lg:text-3xl font-light mb-2">
@@ -104,7 +60,7 @@ const ContactFormSection = () => {
                     Call us for support
                   </p>
                 </div>
-                
+
                 <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-white/20 transition-all duration-300">
                   Get Direction →
                 </button>
@@ -149,16 +105,17 @@ const ContactFormSection = () => {
                   </label>
                   <div className="relative">
                     <button
+                      type="button"
                       onClick={() => setIsSubjectOpen(!isSubjectOpen)}
                       className="w-full bg-transparent border-b border-gray-600 text-white text-lg py-3 px-0 flex items-center justify-between focus:border-purple-400 focus:outline-none transition-colors"
                     >
                       <span>{formData.subject}</span>
-                      <ChevronDown 
-                        size={20} 
+                      <ChevronDown
+                        size={20}
                         className={`text-gray-400 transition-transform ${isSubjectOpen ? 'rotate-180' : ''}`}
                       />
                     </button>
-                    
+
                     {isSubjectOpen && (
                       <div className="absolute top-full left-0 right-0 bg-gray-800/90 backdrop-blur-sm border border-gray-600 rounded-lg mt-2 py-2 z-20">
                         {subjectOptions.map((option, index) => (
@@ -211,7 +168,7 @@ const ContactFormSection = () => {
                   <Paperclip size={18} />
                   <span className="text-sm">Add an attachment</span>
                 </button>
-                
+
                 <button className="bg-white text-black px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors">
                   Send Your Message →
                 </button>

@@ -52,9 +52,10 @@ export default function OurServices() {
     {/* TOP HEADER + DESCRIPTION */}
     <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-12">
       <div>
-        <button className="text-xs px-4 py-1 border border-[#ffffff30] text-white rounded-full mb-14 ml-5 hover:bg-white hover:text-black transition-all">
-          ← OUR SERVICES
-        </button>
+        <button className="text-lg px-5 py-2 border border-purple-500 text-white rounded-full font-medium flex items-center gap-2">
+            <span className="text-purple-400 font-semibold text-2xl ">◂</span>{" "}
+            <span className="italic">OUR SERVICES</span>
+          </button>
    
       </div>
 
@@ -98,43 +99,40 @@ export default function OurServices() {
 
 
 
-    <div className="flex mt-15 min-h-screen">
-      {/* Left Side - Bird */}
-    {/* Left Side - Bird */}
-<div className="w-full md:w-5/8 bg-black flex items-center justify-center">
+<div className="flex flex-col md:flex-row min-h-screen">
+  {/* Left Side - Bird */}
+<div className="w-full md:w-3/5 bg-black flex items-center justify-center overflow-hidden">
   <img
     src={BirdImage}
     alt="Bird"
-    className="w-full max-w-[500px] h-auto object-contain transition-transform duration-500"
+    className="w-full h-full object-contain transition-transform duration-500"
   />
 </div>
 
 
-{/* Right Side - Content */}
-<div className="w-3/8 bg-[#1d002f] flex items-center justify-center relative p-4">
-  {/* Glass Card */}
-  <div className="bg-[#ffffff0a] backdrop-blur-md border border-[#ffffff1a] rounded-xl p-8 md:p-10 w-full max-w-sm text-white min-h-[440px] flex flex-col gap-6 shadow-md">
-    
-    {/* Top Button */}
-    <button className="self-end text-xs px-4 py-1 border border-[#ffffff30] text-white rounded-full hover:bg-white hover:text-black transition-all">
-      <span className="mr-1">←</span> OUR PHILOSOPHY
-    </button>
+  {/* Right Side - Content */}
+  <div className="w-full md:w-2/5 bg-[#1d002f] flex items-center justify-center p-6 md:p-12">
+    <div className="bg-[#ffffff0a] backdrop-blur-md border border-[#ffffff1a] rounded-xl p-6 md:p-10 w-full max-w-sm text-white min-h-[520px] flex flex-col gap-6 shadow-md">
 
-    {/* Main Text */}
-    <div className="mt-20" >
-      <h2 className="text-lg font-medium leading-snug mb-2">
-        We help passionate <br />
-        <span className="text-purple-300">Founders</span> perfect theirs{" "}
-        <span className="text-purple-300">design & development</span> game.
-      </h2>
-      <p className="text-sm text-[#b8a5cc]">Let’s aim for the top together!</p>
+      
+      {/* Top Button */}
+      <button className="self-end text-xs px-4 py-2 border border-[#ffffff30] text-white rounded-full">
+        <span className="mr-1">←</span> OUR PHILOSOPHY
+      </button>
+
+      {/* Main Text */}
+      <div className="mt-12 md:mt-20">
+        <h2 className="text-lg font-medium leading-snug mb-2">
+          We help passionate <br />
+          <span className="text-purple-300">Founders</span> perfect their{" "}
+          <span className="text-purple-300">design & development</span> game.
+        </h2>
+        <p className="text-sm text-[#b8a5cc]">Let’s aim for the top together!</p>
+      </div>
     </div>
-
-  
   </div>
 </div>
 
-    </div>
     
 
     </section>

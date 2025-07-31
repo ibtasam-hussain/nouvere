@@ -9,12 +9,13 @@ const Hero = () => {
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div
-        className={`absolute inset-0 w-full h-full z-0 bg-cover bg-center transition-opacity duration-700 ease-in-out ${
-          isHovered ? "opacity-20" : "opacity-100"
-        }`}
-        style={{ backgroundImage: `url(${bg})` }}
-      />
+<div
+  className={`absolute inset-0 w-full h-full z-0 bg-cover bg-center transition-all duration-700 ease-in-out ${
+    isHovered ? "opacity-50 translate-y-[-40px]" : "opacity-100 translate-y-0"
+  }`}
+  style={{ backgroundImage: `url(${bg})` }}
+/>
+
 
       {/* Main Content Wrapper */}
       <div className="relative z-30 flex flex-col xl:flex-row items-center justify-between w-full px-4 sm:px-6 md:px-8 lg:px-12 gap-10 xl:gap-0 transition-all duration-700 ease-in-out">

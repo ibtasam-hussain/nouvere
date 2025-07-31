@@ -42,7 +42,7 @@ const HubFolioFooter = () => {
                 </p>
 
                 <p className="text-gray-400 text-sm font-light">
-                  © 2024 HubFolio Agency. All Right Reserved.
+                  © 2024 Nouvere Agency. All Right Reserved.
                 </p>
               </div>
             </div>

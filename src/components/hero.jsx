@@ -17,9 +17,7 @@ const Hero = () => {
       />
 
       {/* Main Content Wrapper */}
-      <div
-        className="relative z-30 flex flex-col xl:flex-row items-center justify-between w-full px-4 sm:px-6 md:px-8 lg:px-12 gap-10 xl:gap-0 transition-all duration-700 ease-in-out"
-      >
+      <div className="relative z-30 flex flex-col xl:flex-row items-center justify-between w-full px-4 sm:px-6 md:px-8 lg:px-12 gap-10 xl:gap-0 transition-all duration-700 ease-in-out">
         {/* Left Content */}
         <div
           className={`flex flex-col items-center xl:items-start text-center xl:text-left transform transition-transform duration-700 ease-in-out ${
@@ -54,19 +52,19 @@ const Hero = () => {
         </div>
 
         {/* Bird Image */}
-<div className="flex justify-center items-center xl:flex-1">
-  <img
-    src={isHovered ? hoverBird : bird}
-    alt="Bird"
-    className={`w-[85vw] sm:w-[70vw] md:w-[55vw] lg:w-[45vw] xl:w-[40vw] max-w-[650px] transition-transform duration-700 ease-in-out ${
-      isHovered ? "scale-125" : "scale-100"
-    }`}
-    onMouseEnter={() => setIsHovered(true)}
-    onMouseLeave={() => setIsHovered(false)}
-  />
-</div>
-
-
+        <div
+          className="flex justify-center items-center xl:flex-1"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <img
+            src={isHovered ? hoverBird : bird}
+            alt="Bird"
+            className={`w-[85vw] sm:w-[70vw] md:w-[55vw] lg:w-[45vw] xl:w-[40vw] max-w-[650px] transition-transform duration-700 ease-in-out ${
+              isHovered ? "scale-125" : "scale-100"
+            }`}
+          />
+        </div>
 
         {/* Bottom/Right Text (stacked below bird on mobile) */}
         <div

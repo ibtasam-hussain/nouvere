@@ -2,6 +2,7 @@
 
 import { Check, X } from "lucide-react";
 import React, { useState } from "react";
+import BG from "../assets/Pbg.png";
 
 export default function PackagesSection() {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,7 +56,16 @@ export default function PackagesSection() {
   ];
 
   return (
-    <section className="min-h-[140vh] py-24 px-4 sm:px-6 md:px-8 bg-black text-white">
+   <section
+className="min-h-screen py-24 px-4 sm:px-6 md:px-8 bg-black text-white"
+
+  style={{
+    backgroundImage: `url(${BG})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
       <div className="mx-auto max-w-[1400px]">
         {/* Title */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-24 gap-6">

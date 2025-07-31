@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import { ArrowRight, ArrowLeft } from 'lucide-react';
+import React from 'react';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const ArticlesSection = () => {
-  const [showAll, setShowAll] = useState(false);
-
+const ArticlesSection = ({ showAll = false }) => {
   const articles = [
     {
       id: 1,
@@ -40,14 +39,12 @@ const ArticlesSection = () => {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-16">
       <div className="w-full max-w-[1600px]">
-        {/* Header Section */}
+        {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-10">
-          <div className="flex items-center gap-4 mb-4 lg:mb-0">
-        <button className="text-lg px-5 py-2 border border-purple-500 text-white rounded-full font-medium flex items-center gap-2">
-            <span className="text-purple-400 font-semibold text-2xl ">◂</span>{" "}
+          <button className="text-lg px-5 py-2 border border-purple-500 text-white rounded-full font-medium flex items-center gap-2 mb-4 lg:mb-0">
+            <span className="text-purple-400 font-semibold text-2xl">◂</span>{" "}
             <span className="italic">ARTICLES</span>
           </button>
-          </div>
           <div className="text-right">
             <h2 className="text-white text-lg lg:text-xl font-light leading-relaxed max-w-xl">
               The place that we share everything related to{" "}
@@ -60,7 +57,6 @@ const ArticlesSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {visibleArticles.map((article) => (
             <div key={article.id} className="group cursor-pointer">
-              {/* Article Image Section */}
               <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${article.bgColor} aspect-[4/3] mb-4`}>
                 <div
                   className="absolute inset-0 bg-cover bg-center opacity-80 group-hover:scale-105 transition-transform duration-500"
@@ -71,8 +67,6 @@ const ArticlesSection = () => {
                 />
                 <div className="absolute inset-0 bg-black/20" />
               </div>
-
-              {/* Article Info */}
               <div className="space-y-2">
                 <h3 className="text-white text-lg lg:text-xl font-light leading-relaxed line-clamp-2 group-hover:text-purple-300 transition-colors">
                   {article.title}
@@ -83,19 +77,21 @@ const ArticlesSection = () => {
           ))}
         </div>
 
-        {/* Toggle Button */}
-        <div className="flex justify-center mt-10">
-          <button
-            onClick={() => setShowAll(!showAll)}
-            className="px-6 py-3 bg-transparent border border-gray-600 text-gray-300 text-sm font-medium rounded-full hover:border-gray-400 hover:text-white transition-all duration-300 flex items-center gap-2 group"
-          >
-            {showAll ? "Show Less" : "View More"}
-            <ArrowRight
-              size={16}
-              className={`group-hover:translate-x-1 transition-transform ${showAll ? "rotate-180" : ""}`}
-            />
-          </button>
-        </div>
+        {/* See More Button */}
+        {!showAll && (
+          <div className="flex justify-center mt-10">
+            <Link
+              to="/articles"
+              className="px-6 py-3 border border-gray-600 text-gray-300 text-sm font-medium rounded-full hover:border-gray-400 hover:text-white transition-all duration-300 flex items-center gap-2 group"
+            >
+              View More
+              <ArrowRight
+                size={16}
+                className="group-hover:translate-x-1 transition-transform"
+              />
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

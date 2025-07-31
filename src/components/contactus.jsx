@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, Paperclip } from 'lucide-react';
-
+import BG from '../assets/CUbg.png';
 const ContactFormSection = () => {
   const [formData, setFormData] = useState({
     fullName: 'Christian Bogl',
@@ -29,7 +29,16 @@ const ContactFormSection = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4 relative overflow-hidden">
+<div
+  className="min-h-screen bg-black flex items-center justify-center p-4 relative overflow-hidden text-white"
+  style={{
+    backgroundImage: `url(${BG})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+
       {/* Main content container - full width */}
       <div className="relative z-10 w-full max-w-[1600px]">
         <div

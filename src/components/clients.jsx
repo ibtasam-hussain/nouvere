@@ -1,14 +1,14 @@
 import React from "react";
+import bg from "../assets/logo.svg";
 
 const clients = [
-  { src: "/logo1.png", alt: "Company Name" },
-  { src: "/logo2.png", alt: "Slack" },
-  { src: "/logo3.png", alt: "Logo 3" },
-  { src: "/logo4.png", alt: "Logo 4" },
-  { src: "/logo5.png", alt: "Technology Transfer" },
-  { src: "/logo6.png", alt: "125+ Clients" },
+  { src: bg, alt: "Company 1" },
+  { src: bg, alt: "Slack" },
+  { src: bg, alt: "Logo 3" },
+  { src: bg, alt: "Logo 4" },
+  { src: bg, alt: "Technology Transfer" },
+  { src: bg, alt: "125+ Clients" },
 ];
-
 const OurClients = () => {
   return (
     <div className="bg-black text-white px-4 py-12 md:px-20">
@@ -31,7 +31,8 @@ const OurClients = () => {
       </div>
 
       {/* Logos */}
-      <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 place-items-center">
+      <div className="mt-10 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-1 place-items-center">
+
         {clients.map((client, index) => (
           <div
             key={index}

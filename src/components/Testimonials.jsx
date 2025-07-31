@@ -1,7 +1,7 @@
 "use client";
 
 import { Star } from "lucide-react";
-
+import Bg from "../assets/Tbg.png";
 const testimonials = [
   {
     name: "Bradley Gordon",
@@ -25,7 +25,11 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="bg-black text-white py-28 px-4 sm:px-6 md:px-8 relative overflow-hidden">
+ <section
+  className="bg-black text-white py-28 px-4 sm:px-6 md:px-8 relative overflow-hidden"
+  style={{ backgroundImage: `url(${Bg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+>
+
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6 gap-6">
           <button className="text-lg px-5 py-2 border border-purple-500 text-white rounded-full font-medium flex items-center gap-2">

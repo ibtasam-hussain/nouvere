@@ -47,6 +47,23 @@ const services = [
     icon: <FaObjectGroup size={16} />,
     description:
       'Transform your website with our UI/UX design services. Create a seamless user experience that drives engagement and boosts conversions.',
+  },  {
+    title: 'Social Media Management',
+    icon: <FaUsers size={16} />,
+    description:
+      'Enhance your online presence with our comprehensive social media management services. Engage your audience, build loyalty, and simplify brand awareness.',
+  },
+  {
+    title: 'Email Marketing',
+    icon: <FaEnvelope size={16} />,
+    description:
+      'Unlock the power of email marketing with our targeted campaigns. Drive conversions, nurture leads, and maintain customer relationships effortlessly.',
+  },
+  {
+    title: 'UI/UX Design',
+    icon: <FaObjectGroup size={16} />,
+    description:
+      'Transform your website with our UI/UX design services. Create a seamless user experience that drives engagement and boosts conversions.',
   },
 ];
 

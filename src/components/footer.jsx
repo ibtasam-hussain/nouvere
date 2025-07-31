@@ -1,5 +1,7 @@
 import React from 'react';
 import { Twitter, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
+import Logo from '../assets/footer.svg';
+
 
 const HubFolioFooter = () => {
   const socialLinks = [
@@ -18,9 +20,7 @@ const HubFolioFooter = () => {
   ];
 
   return (
-      <footer className="w-full relative overflow-hidden" style={{
-        background: 'linear-gradient(135deg, #0a0015 0%, #1a0b2e 25%, #2d1b4e 50%, #4c1d5f 75%, #7209b7 100%)'
-      }}>
+      <footer className="w-full relative overflow-hidden bg-black">
         <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-16 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 items-start">
 
@@ -30,8 +30,8 @@ const HubFolioFooter = () => {
                 <h2 className="text-white text-2xl font-medium tracking-tight">
                   NOUVERE
                 </h2>
-                <div className="w-20 h-20 bg-white/10 rounded-lg flex items-center justify-center text-white text-sm">
-                  <img src="../assets/logo.svg" alt="HubFolio Logo" />
+                <div className="w-40 h-60 rounded-lg flex items-center justify-center text-white text-sm">
+                  <img src={Logo} alt="HubFolio Logo" />
                 </div>
               </div>
 

@@ -23,7 +23,7 @@ import bestfeaturesBG from "./assets/bestfeaturesBG.svg";
 import bg from "./assets/bg.avif";
 import bird from "./assets/bird.svg";
 import bodyBG from "./assets/bodyBG.svg";
-import CUBg from "./assets/CUBg.png";
+import CUBg from "./assets/CUbg.png";
 import footerImg from "./assets/footer.svg";
 import hoverBird from "./assets/hoverBird.svg";
 import logo from "./assets/logo.svg";

@@ -3,7 +3,7 @@ import { ChevronDown, Paperclip } from "lucide-react";
 import BG from "../assets/CUbg.png";
 const ContactFormSection = () => {
   const [formData, setFormData] = useState({
-    fullName: "Christian Bogl",
+    fullName: "Your name",
     email: "Your email address",
     subject: "Select a subject",
     budget: "A magical budget for project",

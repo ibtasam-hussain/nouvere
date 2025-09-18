@@ -9,13 +9,14 @@ const Hero = () => {
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-<div
-  className={`absolute inset-0 w-full h-full z-0 bg-cover bg-center transition-all duration-700 ease-in-out ${
-    isHovered ? "opacity-50 translate-y-[-40px]" : "opacity-100 translate-y-0"
-  }`}
-  style={{ backgroundImage: `url(${bg})` }}
-/>
-
+      <div
+        className={`absolute inset-0 w-full h-full z-0 bg-cover bg-center transition-all duration-700 ease-in-out ${
+          isHovered
+            ? "opacity-50 translate-y-[-40px]"
+            : "opacity-100 translate-y-0"
+        }`}
+        style={{ backgroundImage: `url(${bg})` }}
+      />
 
       {/* Main Content Wrapper */}
       <div className="relative z-30 flex flex-col xl:flex-row items-center justify-between w-full px-4 sm:px-6 md:px-8 lg:px-12 gap-10 xl:gap-0 transition-all duration-700 ease-in-out">
@@ -28,12 +29,8 @@ const Hero = () => {
           } max-w-xs sm:max-w-sm md:max-w-md lg:max-w-2xl`}
         >
           <div className="mb-4 sm:mb-6 md:mb-8">
-            <p className="text-purple-400 text-3xl sm:text-4xl md:text-6xl lg:text-7xl italic font-light">
-              CREATIVE
-            </p>
-            <h2 className="text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold">
-              SUCCESS
-            </h2>
+            <p className="text-purple-400 text- xl sm:text-4xl md:text-6xl lg:text-7xl italic font-light"></p>
+            <h2 className="text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold"></h2>
           </div>
 
           <button
@@ -43,12 +40,13 @@ const Hero = () => {
                 isHovered ? "scale-90" : "scale-100"
               }`}
           >
-            Play now
+            Take The Leap Today!
           </button>
 
           <p className="text-white text-sm sm:text-base max-w-xs sm:max-w-sm">
-            Buy, sell, and grow your crypto with CoinFlip, the platform
-            dedicated to every trader at every level.
+            Experience end-to-end digital transformation solutions that align
+            strategy, design, and tech-driven insights to bring maximum value to
+            your business.
           </p>
         </div>
 
@@ -75,11 +73,11 @@ const Hero = () => {
               : "scale-100 translate-x-0 translate-y-0"
           }`}
         >
-          <p className="text-purple-400 text-3xl sm:text-4xl md:text-6xl lg:text-7xl italic font-light">
-            SUCCESS
+          <p className="text-purple-400 text-2xl sm:text-3xl md:text-4xl lg:text-5xl italic font-light">
+            Your Digital Success
           </p>
-          <h2 className="text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold">
-            CREATIVE
+          <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+            Begins Here
           </h2>
         </div>
       </div>

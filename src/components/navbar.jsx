@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Logo from "../assets/logo.svg";
 import { ChevronRight } from "lucide-react";
+import { Link } from "react-scroll"; // 👈 import react-scroll
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -19,33 +20,42 @@ export function Navbar() {
     >
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
         {/* Left: Logo */}
-        <div className="flex items-center gap-2">
-          <img
-            src={Logo}
-            alt="Nouvere Logo"
-            className="h-10 w-auto"
-          />
-         
-        </div>
+        <Link to="/" className="flex items-center gap-2">
+          <img src={Logo} alt="Nouvere Logo" className="h-10 w-auto" />
+        </Link>
 
-        {/* Center: Navigation Links with rounded background */}
+        {/* Center: Navigation Links */}
         <div className="hidden md:flex items-center gap-6 bg-black/40 border border-white/20 px-6 py-2 rounded-full">
-          {["Home", "Works", "Studio", "News"].map((item) => (
-            <a
-              key={item}
-              href="#"
-              className="text-white text-sm font-medium hover:text-purple-400 transition-colors"
+          {[
+            { name: "Home", to: "home" },
+            { name: "Works", to: "portfolio" },
+            { name: "Packages", to: "packages" },
+            { name: "News", to: "team" },
+          ].map((item) => (
+            <Link
+              key={item.name}
+              to={item.to}
+              smooth={true}
+              duration={600}
+              offset={-70} // adjust for navbar height
+              className="cursor-pointer text-white text-sm font-medium hover:text-purple-400 transition-colors"
             >
-              {item.toUpperCase()}
-            </a>
+              {item.name.toUpperCase()}
+            </Link>
           ))}
         </div>
 
         {/* Right: Button */}
         <div className="hidden md:flex items-center">
-          <button className="bg-white text-black font-medium text-sm px-4 py-2 rounded-full flex items-center gap-2 hover:bg-purple-900 hover:text-white transition-all duration-300">
+          <Link
+            to="contact"
+            smooth={true}
+            duration={600}
+            offset={-70} // adjust for navbar height
+            className="cursor-pointer bg-white text-black font-medium text-sm px-4 py-2 rounded-full flex items-center gap-2 hover:bg-purple-900 hover:text-white transition-all duration-300"
+          >
             Start Project <ChevronRight size={16} />
-          </button>
+          </Link>
         </div>
 
         {/* Mobile Menu Icon */}

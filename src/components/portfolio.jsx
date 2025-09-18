@@ -1,9 +1,10 @@
 import React from "react";
-import PortfolioImage from "../assets/bg.avif";
-import Bg from "../assets/OSbg.png";
-import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import PortfolioImage from "../assets/web1.jpg";
+import PortfolioImage2 from "../assets/web2.jpg";
 
+import Bg from "../assets/OSbg.png";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 export default function ProjectSection({ showAll = false }) {
   const projects = [
@@ -14,7 +15,7 @@ export default function ProjectSection({ showAll = false }) {
     },
     {
       title: "Creative Project 2",
-      image: PortfolioImage,
+      image: PortfolioImage2,
       tags: ["Node.js", "MongoDB", "Express"],
     },
     {
@@ -22,21 +23,21 @@ export default function ProjectSection({ showAll = false }) {
       image: PortfolioImage,
       tags: ["Node.js", "MongoDB", "Express"],
     },
-    {
-      title: "Creative Project 4",
-      image: PortfolioImage,
-      tags: ["Node.js", "MongoDB", "Express"],
-    },
-    {
-      title: "Creative Project 5",
-      image: PortfolioImage,
-      tags: ["Next.js", "Framer", "Animations"],
-    },
-    {
-      title: "Creative Project 6",
-      image: PortfolioImage,
-      tags: ["Figma", "Design System"],
-    },
+    // // {
+    // //   title: "Creative Project 4",
+    // //   image: PortfolioImage,
+    // //   tags: ["Node.js", "MongoDB", "Express"],
+    // // },
+    // // {
+    // //   title: "Creative Project 5",
+    // //   image: PortfolioImage,
+    // //   tags: ["Next.js", "Framer", "Animations"],
+    // // },
+    // // {
+    // //   title: "Creative Project 6",
+    // //   image: PortfolioImage,
+    // //   tags: ["Figma", "Design System"],
+    // },
   ];
 
   const visibleProjects = showAll ? projects : projects.slice(0, 2); // 👈 show only 2 unless showAll is true
@@ -47,17 +48,17 @@ export default function ProjectSection({ showAll = false }) {
       style={{ backgroundImage: `url(${Bg})` }}
     >
       <div className="container mx-auto px-4">
-               <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 gap-6">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 gap-6">
           <button className="text-lg px-5 py-2 border border-purple-500 text-white rounded-full font-medium flex items-center gap-2">
             <span className="text-purple-400 font-semibold text-2xl ">◂</span>{" "}
-            <span className="italic">FEATURED WORK</span>
+            <span className="italic">Want a sneak peek?</span>
           </button>
 
           <div className="text-right max-w-xl">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium leading-snug">
-              Our user-centered design encourages <br />
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium leading-snug">
               <span className="text-white/60 font-normal">
-                productivity &amp; boosts revenue.
+                See how our user-centric design and development solutions have
+                changed the game for brands and enterprises.
               </span>
             </h2>
           </div>
@@ -86,7 +87,8 @@ export default function ProjectSection({ showAll = false }) {
                   {item.title}
                 </h3>
                 <p className="text-gray-400 text-xs max-w-sm mb-6">
-                  This is a short description to describe this project. Use this to highlight key features or impact.
+                  This is a short description to describe this project. Use this
+                  to highlight key features or impact.
                 </p>
                 <div className="flex gap-2 justify-end">
                   {item.tags.map((tag, idx) => (
@@ -103,7 +105,7 @@ export default function ProjectSection({ showAll = false }) {
           ))}
         </div>
 
-        {!showAll && (
+        {/* {!showAll && (
           <div className="mt-10 flex justify-center">
             <Link
               to="/portfolio"
@@ -116,7 +118,7 @@ export default function ProjectSection({ showAll = false }) {
               />
             </Link>
           </div>
-        )}
+        )} */}
       </div>
     </section>
   );

@@ -1,52 +1,52 @@
-import React, { useState } from 'react';
-import { ChevronDown, Paperclip } from 'lucide-react';
-import BG from '../assets/CUbg.png';
+import React, { useState } from "react";
+import { ChevronDown, Paperclip } from "lucide-react";
+import BG from "../assets/CUbg.png";
 const ContactFormSection = () => {
   const [formData, setFormData] = useState({
-    fullName: 'Christian Bogl',
-    email: 'Your email address',
-    subject: 'Select a subject',
-    budget: 'A magical budget for project',
-    message: 'Write your message here...'
+    fullName: "Christian Bogl",
+    email: "Your email address",
+    subject: "Select a subject",
+    budget: "A magical budget for project",
+    message: "Write your message here...",
   });
 
   const [isSubjectOpen, setIsSubjectOpen] = useState(false);
 
   const subjectOptions = [
-    'Select a subject',
-    'Web Development',
-    'Mobile App Development',
-    'UI/UX Design',
-    'Branding',
-    'Consultation'
+    "Select a subject",
+    "Web Development",
+    "Mobile App Development",
+    "UI/UX Design",
+    "Branding",
+    "Consultation",
   ];
 
   const handleInputChange = (field, value) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
   return (
-<div
-  className="min-h-screen bg-black flex items-center justify-center p-4 relative overflow-hidden text-white"
-  style={{
-    backgroundImage: `url(${BG})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-  }}
->
-
+    <div
+      className="min-h-screen bg-black flex items-center justify-center p-4 relative overflow-hidden text-white"
+      style={{
+        backgroundImage: `url(${BG})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       {/* Main content container - full width */}
       <div className="relative z-10 w-full max-w-[1600px]">
         <div
           className="bg-black/40 backdrop-blur-sm rounded-3xl p-6 md:p-10 lg:p-14 xl:p-20"
           style={{
-            background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(124, 58, 237, 0.3) 50%, rgba(109, 40, 217, 0.2) 100%)',
-            border: '1px solid rgba(139, 92, 246, 0.3)',
-            backdropFilter: 'blur(20px)'
+            background:
+              "linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(124, 58, 237, 0.3) 50%, rgba(109, 40, 217, 0.2) 100%)",
+            border: "1px solid rgba(139, 92, 246, 0.3)",
+            backdropFilter: "blur(20px)",
           }}
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
@@ -54,20 +54,20 @@ const ContactFormSection = () => {
             <div className="lg:col-span-5 space-y-8">
               <div>
                 <h1 className="text-white text-3xl lg:text-4xl font-light leading-tight mb-4">
-                  Success is a team<br />
-                  play, right? <span className="text-purple-300">Let's work<br />
-                  together!</span>
+                  Your Path to Digital!
+                  <br />{" "}
+                  <span className="text-purple-300 text-xl lg:text-2xl font-semibold">
+                    Launch, accelerate, and dominate.
+                  </span>
                 </h1>
               </div>
 
               <div className="space-y-6">
                 <div>
                   <h2 className="text-white text-2xl lg:text-3xl font-light mb-2">
-                    +068 5581 96 96
+                    +92 326 2020580
                   </h2>
-                  <p className="text-gray-400 text-sm">
-                    Call us for support
-                  </p>
+                  <p className="text-gray-400 text-sm">Call us for support</p>
                 </div>
 
                 <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-white/20 transition-all duration-300">
@@ -87,7 +87,9 @@ const ContactFormSection = () => {
                   <input
                     type="text"
                     value={formData.fullName}
-                    onChange={(e) => handleInputChange('fullName', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("fullName", e.target.value)
+                    }
                     className="w-full bg-transparent border-b border-gray-600 text-white text-lg py-3 px-0 focus:border-purple-400 focus:outline-none transition-colors placeholder-gray-500"
                   />
                 </div>
@@ -100,7 +102,7 @@ const ContactFormSection = () => {
                   <input
                     type="email"
                     value={formData.email}
-                    onChange={(e) => handleInputChange('email', e.target.value)}
+                    onChange={(e) => handleInputChange("email", e.target.value)}
                     className="w-full bg-transparent border-b border-gray-600 text-gray-400 text-lg py-3 px-0 focus:border-purple-400 focus:outline-none transition-colors placeholder-gray-500"
                   />
                 </div>
@@ -121,7 +123,9 @@ const ContactFormSection = () => {
                       <span>{formData.subject}</span>
                       <ChevronDown
                         size={20}
-                        className={`text-gray-400 transition-transform ${isSubjectOpen ? 'rotate-180' : ''}`}
+                        className={`text-gray-400 transition-transform ${
+                          isSubjectOpen ? "rotate-180" : ""
+                        }`}
                       />
                     </button>
 
@@ -131,7 +135,7 @@ const ContactFormSection = () => {
                           <button
                             key={index}
                             onClick={() => {
-                              handleInputChange('subject', option);
+                              handleInputChange("subject", option);
                               setIsSubjectOpen(false);
                             }}
                             className="w-full text-left px-4 py-2 text-white hover:bg-purple-600/30 transition-colors"
@@ -152,7 +156,9 @@ const ContactFormSection = () => {
                   <input
                     type="text"
                     value={formData.budget}
-                    onChange={(e) => handleInputChange('budget', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("budget", e.target.value)
+                    }
                     className="w-full bg-transparent border-b border-gray-600 text-gray-400 text-lg py-3 px-0 focus:border-purple-400 focus:outline-none transition-colors placeholder-gray-500"
                   />
                 </div>
@@ -165,7 +171,7 @@ const ContactFormSection = () => {
                 </label>
                 <textarea
                   value={formData.message}
-                  onChange={(e) => handleInputChange('message', e.target.value)}
+                  onChange={(e) => handleInputChange("message", e.target.value)}
                   rows={4}
                   className="w-full bg-transparent border-b border-gray-600 text-gray-400 text-lg py-3 px-0 focus:border-purple-400 focus:outline-none transition-colors placeholder-gray-500 resize-none"
                 />

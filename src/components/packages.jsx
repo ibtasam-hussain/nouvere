@@ -19,7 +19,7 @@ export default function PackagesSection() {
         "12 video ads",
         "12 video ads",
         "12 video ads",
-        "12 video ads"
+        "12 video ads",
       ],
       isPopular: false,
     },
@@ -34,7 +34,7 @@ export default function PackagesSection() {
         "12 video ads",
         "12 video ads",
         "12 video ads",
-        "12 video ads"
+        "12 video ads",
       ],
       isPopular: true,
     },
@@ -49,36 +49,36 @@ export default function PackagesSection() {
         "12 video ads",
         "12 video ads",
         "12 video ads",
-        "12 video ads"
+        "12 video ads",
       ],
       isPopular: false,
     },
   ];
 
   return (
-   <section
-className="min-h-screen py-24 px-4 sm:px-6 md:px-8 bg-black text-white"
-
-  style={{
-    backgroundImage: `url(${BG})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-  }}
->
+    <section
+      className="min-h-screen py-24 px-4 sm:px-6 md:px-8 bg-black text-white"
+      style={{
+        backgroundImage: `url(${BG})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="mx-auto max-w-[1400px]">
         {/* Title */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-24 gap-6">
           <div>
-           <button className="text-lg px-5 py-2 border border-purple-500 text-white rounded-full font-medium flex items-center gap-2">
-            <span className="text-purple-400 font-semibold text-2xl ">◂</span>{" "}
-            <span className="italic">PACKAGES</span>
-          </button>
+            <button className="text-lg px-5 py-2 border border-purple-500 text-white rounded-full font-medium flex items-center gap-2">
+              <span className="text-purple-400 font-semibold text-2xl ">◂</span>{" "}
+              <span className="italic">Pricing Packages</span>
+            </button>
           </div>
           <div className="text-left lg:text-right">
-            <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-light leading-snug max-w-3xl">
-              Our user-centered design encourages <br />
-              <span className="text-white/60">productivity</span> & <span className="text-purple-400">boosts revenue</span>.
+            <h2 className="text-white text-2xl sm:text-3xl md:text-4xl font-light leading-snug max-w-2xl">
+              Smart development, intuitive design, & results-driven
+              <span className="text-white/60"> marketing that scales</span>
+              <span className="text-purple-400"> as fast as you do.</span>.
             </h2>
           </div>
         </div>
@@ -102,11 +102,15 @@ className="min-h-screen py-24 px-4 sm:px-6 md:px-8 bg-black text-white"
               )}
 
               <div className="space-y-4">
-                <h3 className="text-2xl font-semibold text-white">{pkg.title}</h3>
+                <h3 className="text-2xl font-semibold text-white">
+                  {pkg.title}
+                </h3>
                 <p className="text-white/80 text-sm leading-relaxed">
                   {pkg.description}
                 </p>
-                <h4 className="text-4xl text-purple-300 font-bold pt-4">{pkg.price}</h4>
+                <h4 className="text-4xl text-purple-300 font-bold pt-4">
+                  {pkg.price}
+                </h4>
                 <ul className="space-y-2 pt-4">
                   {pkg.features.map((feature, i) => (
                     <li
@@ -147,7 +151,10 @@ className="min-h-screen py-24 px-4 sm:px-6 md:px-8 bg-black text-white"
             <h3 className="text-2xl font-bold mb-4 text-center">Get a Quote</h3>
             <form className="space-y-4">
               <div>
-                <label htmlFor="package" className="block mb-1 text-sm font-medium text-gray-300">
+                <label
+                  htmlFor="package"
+                  className="block mb-1 text-sm font-medium text-gray-300"
+                >
                   Select Package
                 </label>
                 <select
